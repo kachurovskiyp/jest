@@ -66,4 +66,13 @@ describe('Component ResultBox', () => {
       cleanup();
     };
   });
+
+  it('should render proper info about conversion when amount is negative', () => {
+    const amount = -100;
+    render(<ResultBox from="PLN" to="PLN" amount={amount} />);
+    const output = screen.getByTestId('output');
+
+    expect(output).toHaveTextContent(`Wrong value...`);
+
+  });
 });
